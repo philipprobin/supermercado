@@ -1,0 +1,70 @@
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+from datetime import datetime
+
+
+# Create test DataFrame
+data = {'ProduktID': [0],
+        'Tag_ab': ['Montag'],
+        'Sektion': ['ab-montag-obst-und-gemuese'],
+        'Preis_Old': [15.99],
+        'Preis_New': [9.99],
+        'Name': ['Test']}
+ 
+df = pd.DataFrame(data)
+
+def penny_filialen():
+    """
+    Methode 
+    """
+    
+    #nutz selenium um alle filialen links zu kriegen und in eine liste zu speichern
+    
+    link = "https://www.penny.de/angebote/15A-10"
+    page = requests.get(link)
+    soup = BeautifulSoup(page.content)
+
+    crawl_produkte(soup)
+
+def crawl_produkte(soup):
+    """
+    Methode die alle Produkte einer Penny Filiale crawlt
+    """
+    
+    i = 0
+    
+    #Ab wann das Angebot gilt
+    for tag in soup.find_all('div', {"class": "js-category-section"}):
+        day = tag.get('id')
+
+        #Für jede Sektion 
+        for section in tag.find_all('section', {"class": "page-sector page-sector--above-prev page-sector--spacing-below-xxl t-bg--wild-sand js-category-section"}):
+            sec = section.get('id')
+
+            #für jedes Produkt
+            for li in section.find_all('li', {"class": "tile-list__item"}):
+                i += 1
+            
+                #für beide Preise in der bubble
+                for div in li.findAll('div', {"class": "bubble__wrap"}):
+                    a = True
+
+                    #google class equals exactly class name wegen ellipsis und 
+                    for span in div.findAll('span', {'class': 'ellipsis'}):
+                        if(a):
+                            preis = span.text
+                            a = False
+                        else:
+                            preis2 = span.text
+
+                #Namen der Produkte
+                for a in li.findAll('a', {'class': 'tile__link--cover'}):
+                    name = a.text
+                    df.loc[i] = [i,day,sec,preis,preis2,name]
+    #df['Preis_New'] = df['Preis_Old'].map({'': df['Preis_Old']})
+    #df.Preis_Old = df.Preis_Old.astype('int64')
+    #df.Preis_New = df.Preis_New.astype('int64')
+    #df['Rabatt'] = df.Preis_Old / df.Preis_New
+    #df['Run_date'] = datetime.today().strftime('%Y-%m-%d')
+    return df
