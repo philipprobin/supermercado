@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hungry/models/core/recipe.dart';
 import 'package:hungry/models/helper/recipe_helper.dart';
@@ -13,17 +14,16 @@ class BookmarksPage extends StatefulWidget {
 
 class _BookmarksPageState extends State<BookmarksPage> {
   TextEditingController searchInputController = TextEditingController();
-  List<Recipe> bookmarkedRecipe = RecipeHelper.bookmarkedRecipe;
+  List<Recipe> bookmarkedRecipe = RecipeHelper.featuredRecipe;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        brightness: Brightness.dark,
         backgroundColor: AppColor.primary,
         centerTitle: false,
         elevation: 0,
-        title: Text('Bookmarks', style: TextStyle(fontFamily: 'inter', fontWeight: FontWeight.w400, fontSize: 16)),
+        title: Text('Bookmarks', style: TextStyle(fontFamily: 'inter', fontWeight: FontWeight.w400, fontSize: 16)), systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
       body: ListView(
         shrinkWrap: true,

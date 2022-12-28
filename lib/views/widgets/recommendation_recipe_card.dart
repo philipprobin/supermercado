@@ -25,7 +25,7 @@ class RecommendationRecipeCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.blueGrey,
                 image: DecorationImage(
-                  image: AssetImage(data.photo),
+                  image: NetworkImage(data.image),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -69,7 +69,7 @@ class RecommendationRecipeCard extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(left: 5),
                     child: Text(
-                      '25 min',
+                      data.time,
                       style: TextStyle(fontSize: 10),
                     ),
                   ),

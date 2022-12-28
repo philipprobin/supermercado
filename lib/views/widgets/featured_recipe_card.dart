@@ -25,7 +25,7 @@ class FeaturedRecipeCard extends StatelessWidget {
           color: Colors.grey,
           borderRadius: BorderRadius.circular(10),
           image: DecorationImage(
-            image: AssetImage(data.photo),
+            image: AssetImage(data.image),
             fit: BoxFit.cover,
           ),
         ),

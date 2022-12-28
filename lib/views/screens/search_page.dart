@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hungry/models/core/recipe.dart';
 import 'package:hungry/models/helper/recipe_helper.dart';
@@ -13,14 +14,13 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   TextEditingController searchInputController = TextEditingController();
-  final List<Recipe> searchResult = RecipeHelper.sarchResultRecipe;
+  final List<Recipe> searchResult = RecipeHelper.featuredRecipe;
 
   @override
   Widget build(BuildContext context) {
     print(searchInputController.text.isEmpty);
     return Scaffold(
       appBar: AppBar(
-        brightness: Brightness.dark,
         backgroundColor: AppColor.primary,
         elevation: 0,
         centerTitle: true,
@@ -30,7 +30,7 @@ class _SearchPageState extends State<SearchPage> {
           onPressed: () {
             Navigator.of(context).pop();
           },
-        ),
+        ), systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
       body: ListView(
         shrinkWrap: true,
@@ -115,37 +115,6 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                 ),
                 // Search Keyword Recommendation
-                Container(
-                  height: 60,
-                  margin: EdgeInsets.only(top: 8),
-                  child: ListView.separated(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    physics: BouncingScrollPhysics(),
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    itemCount: popularRecipeKeyword.length,
-                    separatorBuilder: (context, index) {
-                      return SizedBox(width: 8);
-                    },
-                    itemBuilder: (context, index) {
-                      return Container(
-                        alignment: Alignment.topCenter,
-                        child: TextButton(
-                          onPressed: () {
-                            searchInputController.text = popularRecipeKeyword[index];
-                          },
-                          child: Text(
-                            popularRecipeKeyword[index],
-                            style: TextStyle(color: Colors.white.withOpacity(0.7), fontWeight: FontWeight.w400),
-                          ),
-                          style: OutlinedButton.styleFrom(
-                            side: BorderSide(color: Colors.white.withOpacity(0.15), width: 1),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                )
               ],
             ),
           ),
