@@ -6,6 +6,7 @@ import 'package:hungry/views/screens/full_screen_image.dart';
 import 'package:hungry/views/utils/AppColor.dart';
 
 import '../widgets/ingredient_tile.dart';
+import '../widgets/step_tile.dart';
 
 class RecipeDetailPage extends StatefulWidget {
   final Recipe data;
@@ -24,7 +25,7 @@ class _RecipeDetailPageState extends State<RecipeDetailPage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 2, vsync: this);
     _scrollController = ScrollController(initialScrollOffset: 0.0);
     _scrollController.addListener(() {
       changeAppBarColor(_scrollController);
@@ -74,11 +75,6 @@ class _RecipeDetailPageState extends State<RecipeDetailPage>
             backgroundColor: Colors.transparent,
             elevation: 0,
             centerTitle: true,
-            title: Text('Search Recipe',
-                style: TextStyle(
-                    fontFamily: 'inter',
-                    fontWeight: FontWeight.w400,
-                    fontSize: 16)),
             leading: IconButton(
               icon: Icon(Icons.arrow_back_ios, color: Colors.white),
               onPressed: () {
@@ -90,7 +86,8 @@ class _RecipeDetailPageState extends State<RecipeDetailPage>
                   onPressed: () {},
                   icon: SvgPicture.asset('assets/icons/bookmark.svg',
                       color: Colors.white)),
-            ], systemOverlayStyle: SystemUiOverlayStyle.light,
+            ],
+            systemOverlayStyle: SystemUiOverlayStyle.light,
           ),
         ),
       ),
@@ -206,7 +203,7 @@ class _RecipeDetailPageState extends State<RecipeDetailPage>
                     Container(
                       margin: EdgeInsets.only(left: 5),
                       child: Text(
-                        widget.data.time,
+                        widget.data.calories,
                         style: TextStyle(color: Colors.white, fontSize: 12),
                       ),
                     ),
@@ -219,11 +216,43 @@ class _RecipeDetailPageState extends State<RecipeDetailPage>
                         style: TextStyle(color: Colors.white, fontSize: 12),
                       ),
                     ),
+                    SizedBox(width: 10),
+                    Icon(Icons.euro_rounded, size: 16, color: Colors.white),
+                    Container(
+                      margin: EdgeInsets.only(left: 5),
+                      child: Text(
+                        widget.data.price,
+                        style: TextStyle(color: Colors.white, fontSize: 12),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    SvgPicture.asset(
+                      'assets/icons/ic_nutrition.svg',
+                      color: Colors.white,
+                      width: 16,
+                      height: 16,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 5),
+                      child: Text(
+                        widget.data.nutri_score,
+                        style: TextStyle(color: Colors.white, fontSize: 12),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Icon(Icons.eco, size: 16, color: Colors.white),
+                    Container(
+                      margin: EdgeInsets.only(left: 5),
+                      child: Text(
+                        widget.data.emissions,
+                        style: TextStyle(color: Colors.white, fontSize: 12),
+                      ),
+                    ),
                   ],
                 ),
                 // Recipe Title
                 Container(
-                  margin: EdgeInsets.only(bottom: 12, top: 16),
+                  margin: EdgeInsets.only(top: 16),
                   child: Text(
                     widget.data.title,
                     style: TextStyle(
@@ -232,14 +261,6 @@ class _RecipeDetailPageState extends State<RecipeDetailPage>
                         fontWeight: FontWeight.w600,
                         fontFamily: 'inter'),
                   ),
-                ),
-                // Recipe Description
-                Text(
-                  'beschreibung kann weg',
-                  style: TextStyle(
-                      color: Colors.white.withOpacity(0.9),
-                      fontSize: 14,
-                      height: 150 / 100),
                 ),
               ],
             ),
@@ -263,13 +284,10 @@ class _RecipeDetailPageState extends State<RecipeDetailPage>
               indicatorColor: Colors.black,
               tabs: [
                 Tab(
-                  text: 'Ingredients',
+                  text: 'Zutaten',
                 ),
                 Tab(
-                  text: 'Tutorial',
-                ),
-                Tab(
-                  text: 'Reviews',
+                  text: 'Anleitung',
                 ),
               ],
             ),
@@ -278,7 +296,7 @@ class _RecipeDetailPageState extends State<RecipeDetailPage>
           IndexedStack(
             index: _tabController.index,
             children: [
-              // Ingridients
+              // Ingredients
               ListView.builder(
                 shrinkWrap: true,
                 padding: EdgeInsets.zero,
@@ -286,7 +304,19 @@ class _RecipeDetailPageState extends State<RecipeDetailPage>
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return IngredientTile(
-                    ingredient: widget.data.ingredients[index],
+                    data: widget.data.ingredients[index],
+                  );
+                },
+              ),
+              // Tutorials
+              ListView.builder(
+                shrinkWrap: true,
+                padding: EdgeInsets.zero,
+                itemCount: widget.data.tutorial.length,
+                physics: NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return StepTile(
+                    data: widget.data.tutorial[index],
                   );
                 },
               ),

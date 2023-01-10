@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                   margin: EdgeInsets.only(bottom: 16),
                   padding: EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
-                    'Today recomendation based on your taste...',
+                    'Ein paar Rezepte, die dir gefallen könnten...',
                     style: TextStyle(color: Colors.grey),
                   ),
                 ),

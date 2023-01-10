@@ -11,6 +11,7 @@ class FeaturedRecipeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint("Here is the data ${data.ingredients[0].size} ${data.ingredients[0].name} ");
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(builder: (context) => RecipeDetailPage(data: data)));

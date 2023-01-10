@@ -1,4 +1,4 @@
-package supermercado
+package com.supermercado
 
 import io.flutter.embedding.android.FlutterActivity
 
