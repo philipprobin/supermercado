@@ -30,4 +30,4 @@ revolutionize the way we shop and make a positive impact on our planet.
 - Open Pull Request
 - The Owner merges the pull request.
 
-## Done!
+## You are done!
