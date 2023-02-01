@@ -35,7 +35,7 @@ class REWECRAWLER():
     def more_offers_button(self):
         self._main_page()
         for btn in self.driver.find_elements(By.XPATH, ".//button[contains(@class, 'sos-category__content-button')]"):
-            print(btn.text)
+            btn.click()
 
     def crawl_products(self):
         self._main_page()
