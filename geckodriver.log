@@ -874,3 +874,164 @@ JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 560: NotFoundEr
 JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 560: NotFoundError: No such JSWindowActor 'DevToolsFrame'
 JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 560: NotFoundError: No such JSWindowActor 'DevToolsFrame'
 1673988630985	Marionette	INFO	Stopped listening on port 58594
+1675197885771	geckodriver	INFO	Listening on 127.0.0.1:63269
+1675197886266	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63270" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofileWZmyHv"
+1675197899975	Marionette	INFO	Marionette enabled
+1675197900217	Marionette	INFO	Listening on port 63277
+Read port: 63277
+WebDriver BiDi listening on ws://127.0.0.1:63270
+1675197900381	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofileWZmyHv/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:63270/devtools/browser/5a89f65f-1f26-4fb5-9fab-737e8ab8bce4
+JavaScript error: https://www.rewe.de/, line 370: TypeError: googletag.pubads is not a function
+JavaScript error: https://www.rewe.de/ line 6 > injectedScript, line 2: ReferenceError: fbq is not defined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/1Uo-GdYM8jmzkTe9Iw9agpx9XEOhCewo_y8ZrL7aHhw.js line 2 > eval line 5814 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1675197948740	Marionette	INFO	Stopped listening on port 63277
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1675197950222	geckodriver	INFO	Listening on 127.0.0.1:63404
+1675197950743	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63405" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofilet9Au5d"
+1675197951214	Marionette	INFO	Marionette enabled
+1675197951419	Marionette	INFO	Listening on port 63412
+Read port: 63412
+WebDriver BiDi listening on ws://127.0.0.1:63405
+1675197951529	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofilet9Au5d/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:63405/devtools/browser/14660f2a-4edd-4eaf-88e1-e21b0aabc98e
+JavaScript error: https://www.rewe.de/, line 370: TypeError: googletag.pubads is not a function
+1675197977113	Marionette	INFO	Stopped listening on port 63412
+1675197978626	geckodriver	INFO	Listening on 127.0.0.1:63479
+1675197979134	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63480" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofile7nC8Pr"
+1675197979568	Marionette	INFO	Marionette enabled
+1675197979772	Marionette	INFO	Listening on port 63487
+WebDriver BiDi listening on ws://127.0.0.1:63480
+Read port: 63487
+1675197979967	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofile7nC8Pr/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:63480/devtools/browser/29115895-9377-4a93-9c4c-9f7631359a1e
+JavaScript error: https://www.rewe.de/, line 370: TypeError: googletag.pubads is not a function
+1675198030735	Marionette	INFO	Stopped listening on port 63487
+1675200601664	geckodriver	INFO	Listening on 127.0.0.1:64048
+1675200602176	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64049" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofileGwwqyO"
+1675200602901	Marionette	INFO	Marionette enabled
+1675200603157	Marionette	INFO	Listening on port 64056
+Read port: 64056
+WebDriver BiDi listening on ws://127.0.0.1:64049
+1675200603357	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofileGwwqyO/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:64049/devtools/browser/6582159b-5425-4cce-9394-820c167b955f
+JavaScript error: https://www.rewe.de/, line 370: TypeError: googletag.pubads is not a function
+JavaScript error: https://www.rewe.de/, line 315: TypeError: googletag.pubads is not a function
+JavaScript error: https://www.rewe.de/, line 315: TypeError: googletag.pubads is not a function
+JavaScript error: https://www.rewe.de/ line 6 > injectedScript, line 2: ReferenceError: fbq is not defined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/1Uo-GdYM8jmzkTe9Iw9agpx9XEOhCewo_y8ZrL7aHhw.js line 2 > eval line 7687 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1675200621619	Marionette	INFO	Stopped listening on port 64056
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1675200742723	geckodriver	INFO	Listening on 127.0.0.1:64188
+1675200743234	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64189" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofileAVSN0T"
+1675200743697	Marionette	INFO	Marionette enabled
+1675200743916	Marionette	INFO	Listening on port 64196
+Read port: 64196
+WebDriver BiDi listening on ws://127.0.0.1:64189
+1675200744039	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofileAVSN0T/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:64189/devtools/browser/f3a574a9-736a-464b-a2a2-f1b6322e36c2
+JavaScript error: https://www.rewe.de/, line 370: TypeError: googletag.pubads is not a function
+1675200752385	Marionette	INFO	Stopped listening on port 64196
+1675200943829	geckodriver	INFO	Listening on 127.0.0.1:64332
+1675200944343	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64333" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofileghRV9h"
+1675200944968	Marionette	INFO	Marionette enabled
+1675200945197	Marionette	INFO	Listening on port 64340
+Read port: 64340
+WebDriver BiDi listening on ws://127.0.0.1:64333
+1675200945341	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofileghRV9h/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:64333/devtools/browser/13353459-1b4c-4fc6-8508-3ad4879b2c6f
+JavaScript error: https://www.rewe.de/, line 370: TypeError: googletag.pubads is not a function
+console.error: (new TypeError("lazy.AsyncShutdown.profileBeforeChange is undefined", "resource://services-settings/Database.jsm", 510))
+1675201032293	Marionette	INFO	Stopped listening on port 64340
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1675201193950	geckodriver	INFO	Listening on 127.0.0.1:64418
+1675201194472	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64419" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofilestEkNK"
+1675201195101	Marionette	INFO	Marionette enabled
+1675201195336	Marionette	INFO	Listening on port 64426
+Read port: 64426
+WebDriver BiDi listening on ws://127.0.0.1:64419
+1675201195479	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofilestEkNK/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:64419/devtools/browser/7e6bff21-377f-4f8f-b263-19520bfc09f3
+JavaScript error: https://www.rewe.de/, line 370: TypeError: googletag.pubads is not a function
+JavaScript error: https://www.rewe.de/angebote/nationale-angebote/ line 6 > injectedScript, line 2: ReferenceError: fbq is not defined
+1675201415073	Marionette	INFO	Stopped listening on port 64426
+1675201462559	geckodriver	INFO	Listening on 127.0.0.1:64566
+1675201463070	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64567" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofileE9gNce"
+1675201463513	Marionette	INFO	Marionette enabled
+1675201463729	Marionette	INFO	Listening on port 64574
+WebDriver BiDi listening on ws://127.0.0.1:64567
+Read port: 64574
+1675201463852	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofileE9gNce/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:64567/devtools/browser/773381a8-0cb5-46b3-b9a5-50b9985a054e
+JavaScript error: https://www.rewe.de/, line 370: TypeError: googletag.pubads is not a function
+console.error: (new TypeError("lazy.AsyncShutdown.profileBeforeChange is undefined", "resource://services-settings/Database.jsm", 510))
+1675201482757	Marionette	INFO	Stopped listening on port 64574
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1675201484215	geckodriver	INFO	Listening on 127.0.0.1:64635
+1675201484731	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64636" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofileNkgoxh"
+1675201485186	Marionette	INFO	Marionette enabled
+1675201485393	Marionette	INFO	Listening on port 64643
+Read port: 64643
+WebDriver BiDi listening on ws://127.0.0.1:64636
+1675201485526	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofileNkgoxh/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:64636/devtools/browser/56cda78c-ff85-472c-912c-aa95068ec08f
+JavaScript error: https://www.rewe.de/, line 370: TypeError: googletag.pubads is not a function
+JavaScript error: https://www.rewe.de/ line 6 > injectedScript, line 2: ReferenceError: fbq is not defined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/1Uo-GdYM8jmzkTe9Iw9agpx9XEOhCewo_y8ZrL7aHhw.js line 2 > eval line 1160 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1675201502180	Marionette	INFO	Stopped listening on port 64643
+1675201503694	geckodriver	INFO	Listening on 127.0.0.1:64770
+1675201504210	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64771" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofileeJIsEV"
+1675201504665	Marionette	INFO	Marionette enabled
+1675201504884	Marionette	INFO	Listening on port 64778
+Read port: 64778
+WebDriver BiDi listening on ws://127.0.0.1:64771
+1675201505013	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofileeJIsEV/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:64771/devtools/browser/3e057e3c-6bc3-42ef-8c3f-3047178d7a35
+JavaScript error: https://www.rewe.de/, line 370: TypeError: googletag.pubads is not a function
+JavaScript error: https://www.rewe.de/ line 6 > injectedScript, line 2: ReferenceError: fbq is not defined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/1Uo-GdYM8jmzkTe9Iw9agpx9XEOhCewo_y8ZrL7aHhw.js line 2 > eval line 6695 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1675201515848	Marionette	INFO	Stopped listening on port 64778
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1675201520074	geckodriver	INFO	Listening on 127.0.0.1:64908
+1675201520589	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64909" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofilerSnft6"
+1675201521039	Marionette	INFO	Marionette enabled
+1675201521246	Marionette	INFO	Listening on port 64916
+Read port: 64916
+WebDriver BiDi listening on ws://127.0.0.1:64909
+1675201521376	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofilerSnft6/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:64909/devtools/browser/85199b16-1143-4a2d-9e49-195d1716e295
+JavaScript error: https://www.rewe.de/, line 370: TypeError: googletag.pubads is not a function
+1675201532847	geckodriver	INFO	Listening on 127.0.0.1:64973
+1675201533362	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64974" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofileUVg1ru"
+1675201533805	Marionette	INFO	Marionette enabled
+1675201534015	Marionette	INFO	Listening on port 64981
+Read port: 64981
+WebDriver BiDi listening on ws://127.0.0.1:64974
+1675201534154	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/kl/77dw97d55y1_kplchw9htctc0000gn/T/rust_mozprofileUVg1ru/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:64974/devtools/browser/e0921c57-ee74-4769-a59a-d49f16b3815a
+JavaScript error: https://www.rewe.de/, line 370: TypeError: googletag.pubads is not a function
+1675201546502	Marionette	INFO	Stopped listening on port 64981
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1675201550036	Marionette	INFO	Stopped listening on port 64916
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
