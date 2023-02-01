@@ -10,14 +10,22 @@ state-of-the-art machine learning technology combines weekly supermarket deals w
 revolutionize the way we shop and make a positive impact on our planet.
 
 ### Github Collaboration
-#### Pulling from main repo and commit changes
+#### First Steps
 
 - Fork the repo
-- Clone the repo locally: ``` git clone git@github.com:philipprobin/supermercado.git ```
-- Create your own feature branch: ``` git checkout -b own_branch_name ```
-- Add the upstream branch from the original repo: ``` git remote add upstream git@github.com:philipprobin/supermercado.git```
-- Update your current fork to stay in sync with the original upstream: ``` git pull -r upstream main```
-- Checkout to your branch and add features: ``` git checkout own_branch_name ```
+- Clone the repo locally: 
+  - ``` git clone git@github.com:philipprobin/supermercado.git ```
+- Create your own feature branch for feature dev: 
+  - ``` git checkout -b own_branch_name ```
+- Add the upstream branch from the original repo: 
+  - ``` git remote add upstream git@github.com:philipprobin/supermercado.git```
+
+### The Usual Workflow anytime you want to commit
+
+- Checkout to your branch and add features: 
+  - ``` git checkout own_branch_name ```
+- Update your current fork to stay in sync with the original upstream, **Very Important!!**: 
+  - ``` git pull -r upstream main```
 - Commit your changes:
   - ``` git status ```
   - ``` git add . ```
@@ -26,7 +34,8 @@ revolutionize the way we shop and make a positive impact on our planet.
 
 ### Push to the main repo
 
-- Push your changes to the main repo: ``` git push --set-upstream origin own_branch_name ```
+- Push your changes to the main repo: 
+  - ``` git push --set-upstream origin own_branch_name ```
 - Open Pull Request
 - The Owner merges the pull request.
 
