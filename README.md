@@ -15,7 +15,7 @@ revolutionize the way we shop and make a positive impact on our planet.
 - Fork the repo
 - Clone the repo locally: 
   - ``` git clone git@github.com:philipprobin/supermercado.git ```
-- Create your own feature branch: 
+- Create your own feature branch for feature dev: 
   - ``` git checkout -b own_branch_name ```
 - Add the upstream branch from the original repo: 
   - ``` git remote add upstream git@github.com:philipprobin/supermercado.git```
