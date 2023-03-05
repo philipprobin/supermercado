@@ -7,9 +7,10 @@ from dataclasses import dataclass
 
 @dataclass
 class Product:
-    name: str
-    nutrients:list[str]
-    price:float
+    name: str=None
+    nutrients:list[str]=None
+    price:float=None
+    category:str=None
 
 
 class REWECRAWLER():
@@ -27,19 +28,59 @@ class REWECRAWLER():
 
     def _main_page(self):
         self.driver.find_element(By.XPATH, "//span[@class='ths-funnel-tab__title']").click()
-        time.sleep(3)
+        time.sleep(2)
 
     def _format_price(self, price:str) -> float:
         return float(price.split(' ')[0].replace(',', '.'))
 
-    def more_offers_button(self):
-        self._main_page()
-        for btn in self.driver.find_elements(By.XPATH, ".//button[contains(@class, 'sos-category__content-button')]"):
-            btn.click()
+    def _accept_cookies(self):
+        btn_cookies = self.driver.find_element(By.XPATH, "//button[@class='uc-btn uc-btn-primary']")
+        btn_cookies.click()
+        time.sleep(4)
 
-    def crawl_products(self):
+    def crawl_products_and_categories(self):
         self._main_page()
+        self._accept_cookies()
+
+        # Enlarge list of products:
+        catalogs = self.driver.find_elements(By.XPATH, './/div[@class="sos-category__content"]')
+        for catalog in catalogs:
+            btn_more_products = catalog.find_element(By.XPATH, './/div[contains(@class, "sos-category__content-button-wrapper")]//button')
+            if btn_more_products.is_displayed():
+                btn_more_products.click()
+                time.sleep(1)
+
+        # Category titles and Articles:
+        category_titles = self.driver.find_elements(By.XPATH, './/div[@class="sos-category"]//div[@class="sos-category__content"]//h2')
+        article_products_html = self.driver.find_elements(By.XPATH, './/div[@class="sos-category"]//div[@class="sos-category__content"]')
+        all_prods = []
+
+        for i, cat in enumerate(article_products_html):
+            article_names = cat.find_elements(By.XPATH, './/div[contains(@class, "sos-category__content-items")]//article//a')
+            for article in article_names:
+                all_prods.append(Product(
+                    name=article.text,
+                    category=category_titles[i].get_attribute('innerHTML'),
+                ))
+
+        return all_prods
+
+
+
+
+    def crawl_only_products(self):
+        self._accept_cookies()
+
+        # Enlarge list of products:
+        catalogs = self.driver.find_elements(By.XPATH, './/div[@class="sos-category__content"]')
+        for catalog in catalogs:
+            btn_more_products = catalog.find_element(By.XPATH, './/div[contains(@class, "sos-category__content-button-wrapper")]//button')
+            if btn_more_products.is_displayed():
+                btn_more_products.click()
+                time.sleep(1)
+
         article_products_html = self.driver.find_elements(By.XPATH, "//article[@class='cor-offer-renderer-tile cor-link']")
+
         for article_html in article_products_html:
             self.inventory.append(Product(
                 name=article_html.find_element(By.XPATH, ".//a[contains(@class,'cor-offer-information__title-link')]").text,
@@ -51,18 +92,8 @@ class REWECRAWLER():
 
 
 if __name__ == '__main__':
-    REWECRAWLER('https://www.rewe.de/').more_offers_button()
+    print(REWECRAWLER('https://www.rewe.de/').crawl_products_and_categories())
 
-
-# search = driver.find_element(By.NAME, "query")
-# search.send_keys("APPEL Heringsfilets")
-# search.send_keys(Keys.RETURN)
-#
-# time.sleep(1)
-#
-# product = driver.find_element(By.XPATH, '//button[@class="btn btn-primary"]')
-# product.send_keys('lola')
-# product.send_keys(Keys.RETURN)
 
 
 
