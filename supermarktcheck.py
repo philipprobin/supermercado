@@ -2,12 +2,13 @@ import requests
 import re
 import firebase_admin
 from firebase_admin import credentials, firestore
+import json
 import numpy as np
 from bs4 import BeautifulSoup
 
 class Supermarktcheck:
 
-    def firestore_instance():
+    def firestore_instance(self):
         # create firestore instance with credits
         path = 'supermercado-371012-firebase-adminsdk-lu3fc-48a8c3583d.json'
         try:
@@ -82,7 +83,6 @@ class Supermarktcheck:
         # Parse the response content using Beautiful Soup
         soup = BeautifulSoup(response.content, 'html.parser')
 
-        print(page)
 
         # Find class with prices
         try:
@@ -108,40 +108,94 @@ class Supermarktcheck:
             product_info_dict["calories"] = calories
         except: 
             pass
+
+        try:
+            # Find class supermarkets
+            supermarket_class = soup.find_all(class_='sources')[0]
+            strong_elements = supermarket_class.find_all('a')
+            product_info_dict["supermarkets"] = []
+            accepted_markets = ["Rewe", "Netto Marken-Discount", "Lidl", "Kaufland", "Penny-Markt", "Norma", "EDEKA", "Aldi Nord", "Aldu Süd"]
+            for element in strong_elements:
+                market = element.text
+                if market in accepted_markets:
+                    product_info_dict["supermarkets"].append(market)
+        except: 
+            pass
         
         return product_info_dict
     
-    def recursive_tree_building(self, tree, node_link, node_name):
+    
+    def create_db_ref(self, branches):
+        global db
+        db_ref = db.collection(u'supermarktcheck')
+        # replace /
+        branches = [s.replace("/", "&") for s in branches]
+        print(branches)
+        # append branches
+        for branch in branches:
+            # alternating cols and docs
+            if isinstance(db_ref, firestore.CollectionReference):
+                db_ref = db_ref.document(branch)
+            else:
+                db_ref = db_ref.collection(branch)
+        # last one must be collection to set values
+        # if not set last col to name of previous document
+        if isinstance(db_ref, firestore.DocumentReference):
+            db_ref = db_ref.collection(branches[-1])
         
-        print(node_link)
+        return db_ref
+    
+    
+    def recursive_tree_building(self, tree, node_link, node_name):
         sub_categories = self.crawl_categories(node_link)
+
         # are there any more sub-categories?
         if sub_categories is not None:
+        
             for category in sub_categories:
                 name = category[0] 
-                print(name)
                 link = category[1]
-                tree[node_name] = self.recursive_tree_building( tree, link, name)
+                print(name)
+                # creating branch
+                tree_branch.append(name)
+                self.recursive_tree_building(tree, link, name)
+                # when all added remove branch
+                tree_branch.pop()
         
         else:
             # leaf reached -> add items
-            node_dict = {}
-            item_list = self.crawl_item_list( node_link)
+            product_properties = {}
+            item_list = self.crawl_item_list(node_link)
+            db_doc = self.create_db_ref(tree_branch)
+            
             for item in item_list:
-                name = item[0]
-                link = item[1]
-                node_dict[name] = self.crawl_item( link)
-            return node_dict
-        return tree
+                name = item[0] # product name
+                link = item[1] # link
+                print(name)
+                product_properties[name] = self.crawl_item( link )
+                # make sure docs have no /
+                doc_name = name.replace("/", "-")
+                # upload leaf
+                db_doc.document(doc_name).set(product_properties[name])
+
+sm = Supermarktcheck()
+db = sm.firestore_instance()
+tree_branch = []
 
 def main():
     root_link = "https://www.supermarktcheck.de"
-    start_link = "/backwaren/produkte/"
-    ### todo: find all starting links
-    sm = Supermarktcheck()
-    tree = sm.recursive_tree_building({},root_link + start_link, "Backwaren")
-    print(tree)
-
+    done = ["/nahrungsmittel/produkte/","/fleisch-wurst-und-ersatz/produkte/", "/molkereiprodukte-und-ersatz/produkte/"]
+    start_link = [  "/muesli-konfituere-kaffee/produkte/", "/frische-lebensmittel-aus-der-kuehlung/produkte/", "/tiefkuehlkost/produkte/", "/konserven/produkte/"]
+    neglectable = ["/suesswaren-knabberartikel/produkte/" , "/backwaren/produkte/", "/getraenke/produkte/", "/saucen-suppen-gewuerze/produkte/"]
+    
+    for link in start_link:
+        category = link.split("/")[1]
+        print(category)
+        tree_branch.append(category)
+        sm = Supermarktcheck()
+        sm.recursive_tree_building({},root_link + link, category)
+        # remove start link
+        tree_branch.pop()
 
 if __name__ == "__main__":
     main()
